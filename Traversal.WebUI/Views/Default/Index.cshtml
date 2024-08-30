@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+<!-- main-slider -->
+@await Component.InvokeAsync("MainSliderComponentPartial")
+<!-- /main-slider -->
+<!-- //banner-slider-->
+<!--/grids-->
+ @await Component.InvokeAsync("GridsComponentPartial")
+
+<!--//grids-->
+@await Component.InvokeAsync("StatsComponentPartial")
+
+<!-- //stats -->
+<!--/w3l-bottom-->
+@await Component.InvokeAsync("BottomComponentPartial")
+
+<!--//w3l-bottom-->
+ <!-- testimonials -->
+@await Component.InvokeAsync("TestimonialComponentPartial") 
+
+<!-- //testimonials --> 
