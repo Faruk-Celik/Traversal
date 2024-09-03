@@ -4,35 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Traversal.BusinessLayer.Abstract;
+using Traversal.DataAccessLayer.Abstact;
 using Traversal.EntityLayer.Concrete;
 
 namespace Traversal.BusinessLayer.Concrete
 {
     public class SubAboutManager : ISubAboutService
     {
+        private readonly ISubAboutDal _subAboutDal;
+
+        public SubAboutManager ( ISubAboutDal subAboutDal )
+        {
+            _subAboutDal = subAboutDal;
+        }
+
         public void TDelete ( int id )
         {
-            throw new NotImplementedException();
+            _subAboutDal.Delete ( id );
         }
 
         public SubAbout TGetById ( int id )
         {
-            throw new NotImplementedException();
+           return _subAboutDal.GetById ( id );
         }
 
         public List<SubAbout> TGetListAll ()
         {
-            throw new NotImplementedException();
+           return _subAboutDal.GetListAll ();
         }
 
         public void TInsert ( SubAbout entity )
         {
-            throw new NotImplementedException();
+            _subAboutDal.Insert ( entity ); 
         }
 
         public void TUpdate ( SubAbout entity )
         {
-            throw new NotImplementedException();
+            _subAboutDal.Update ( entity );
         }
     }
 }

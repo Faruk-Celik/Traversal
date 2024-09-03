@@ -1,7 +1,27 @@
+using Traversal.BusinessLayer.Abstract;
+using Traversal.BusinessLayer.Concrete;
+using Traversal.DataAccessLayer.Abstact;
+using Traversal.DataAccessLayer.Context;
+using Traversal.DataAccessLayer.EntityFramework;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<TraversalContext>();
+
+builder.Services.AddScoped<IDestinationService, DestinationManager>();
+builder.Services.AddScoped<IDestinationDal, EfDestinationDal>();
+
+builder.Services.AddScoped<IFeatureService, FeatureManager>();
+builder.Services.AddScoped<IFeatureDal, EfFeatureDal>();
+
+builder.Services.AddScoped<ISubAboutService, SubAboutManager>();
+builder.Services.AddScoped<ISubAboutDal, EfSubAboutDal>();
+
+builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
+builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
 var app = builder.Build();
 
