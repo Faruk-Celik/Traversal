@@ -33,6 +33,11 @@ namespace Traversal.BusinessLayer.Concrete
            return _featureDal.GetListAll();
         }
 
+        public List<Feature> TGetListByFilter ( Func<Feature, bool> filter )
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert ( Feature entity )
         {
              _featureDal.Insert ( entity );

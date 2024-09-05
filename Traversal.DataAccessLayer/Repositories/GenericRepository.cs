@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Traversal.DataAccessLayer.Abstact;
@@ -45,6 +46,11 @@ namespace Traversal.DataAccessLayer.Repositories
         {
             _context.Set<T>().Update(entity);
             _context.SaveChanges();
+        }
+
+        public List<T> GetListByFilter ( Expression<Func<T, bool>> filter )
+        {
+           return _context.Set<T>().Where(filter).ToList();
         }
     }
 }

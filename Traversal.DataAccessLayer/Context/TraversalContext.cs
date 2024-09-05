@@ -26,6 +26,7 @@ namespace Traversal.DataAccessLayer.Context
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<SubAbout> SubAbouts { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
     }
 }

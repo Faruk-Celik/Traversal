@@ -33,6 +33,11 @@ namespace Traversal.BusinessLayer.Concrete
             return _testimonialDal.GetListAll();
         }
 
+        public List<Testimonial> TGetListByFilter ( Func<Testimonial, bool> filter )
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert ( Testimonial entity )
         {
             _testimonialDal.Insert(entity);

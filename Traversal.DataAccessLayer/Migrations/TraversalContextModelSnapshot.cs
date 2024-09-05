@@ -90,6 +90,39 @@ namespace Traversal.DataAccessLayer.Migrations
                     b.ToTable("about2s");
                 });
 
+            modelBuilder.Entity("Traversal.EntityLayer.Concrete.Comment", b =>
+                {
+                    b.Property<int>("CommentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommentID"), 1L, 1);
+
+                    b.Property<string>("CommentContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CommentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CommentState")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CommentUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DestinationID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommentID");
+
+                    b.HasIndex("DestinationID");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("Traversal.EntityLayer.Concrete.Contact", b =>
                 {
                     b.Property<int>("ContactId")
@@ -141,6 +174,10 @@ namespace Traversal.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CoverImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DayNight")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -149,7 +186,19 @@ namespace Traversal.DataAccessLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Details1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Details2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image2")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -326,6 +375,22 @@ namespace Traversal.DataAccessLayer.Migrations
                     b.HasKey("TestimonialID");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("Traversal.EntityLayer.Concrete.Comment", b =>
+                {
+                    b.HasOne("Traversal.EntityLayer.Concrete.Destination", "Destination")
+                        .WithMany("Comments")
+                        .HasForeignKey("DestinationID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Destination");
+                });
+
+            modelBuilder.Entity("Traversal.EntityLayer.Concrete.Destination", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

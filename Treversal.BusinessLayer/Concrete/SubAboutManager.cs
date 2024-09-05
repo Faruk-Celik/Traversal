@@ -33,6 +33,11 @@ namespace Traversal.BusinessLayer.Concrete
            return _subAboutDal.GetListAll ();
         }
 
+        public List<SubAbout> TGetListByFilter ( Func<SubAbout, bool> filter )
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert ( SubAbout entity )
         {
             _subAboutDal.Insert ( entity ); 

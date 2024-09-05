@@ -25,6 +25,11 @@ namespace Traversal.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<About> TGetListByFilter ( Func<About, bool> filter )
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert ( About entity )
         {
             throw new NotImplementedException();

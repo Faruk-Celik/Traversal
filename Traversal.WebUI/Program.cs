@@ -23,6 +23,9 @@ builder.Services.AddScoped<ISubAboutDal, EfSubAboutDal>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<ITestimonialDal, EfTestimonialDal>();
 
+builder.Services.AddScoped<ICommentService, CommentManager>();
+builder.Services.AddScoped<ICommentDal, EfCommentDal>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

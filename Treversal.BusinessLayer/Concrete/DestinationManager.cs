@@ -34,6 +34,11 @@ namespace Traversal.BusinessLayer.Concrete
             return _destinationDal.GetListAll ();
         }
 
+        public List<Destination> TGetListByFilter ( Func<Destination, bool> filter )
+        {
+            throw new NotImplementedException();
+        }
+
         public void TInsert ( Destination entity )
         {
            _destinationDal.Insert ( entity );

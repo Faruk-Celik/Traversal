@@ -13,5 +13,6 @@ namespace Traversal.BusinessLayer.Abstract
         void TDelete ( int id );
         List<T> TGetListAll ();
         T TGetById ( int id );
+        List<T> TGetListByFilter ( Func<T, bool> filter );
     }
 }
